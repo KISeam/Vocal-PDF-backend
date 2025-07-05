@@ -9,6 +9,10 @@ CORS(app)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "Vocal PDF Backend is running!"})
+
 @app.route("/get-pages", methods=["POST"])
 def get_pages():
     file = request.files["file"]
